@@ -1,6 +1,7 @@
 import sys
 import pygame
-
+from settings import Settings
+from ship import Ship
 class AlienIn:
     """Overall class to manage game assets and behavior."""
     def __init__(self):
@@ -8,9 +9,12 @@ class AlienIn:
         pygame.init()   # pygame.init() function initializes the background settings that Pygame needs to work properly 1
        
         self.clock = pygame.time.Clock()
+        self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((1200,800))
+        self.screen = pygame.display.set_mode((self.settings.screen_width , self.settings.screen_height))
         pygame.display.set_caption("alien Invasion")
+
+        self.ship = Ship(self)
         """set bg color"""
 
         self.bg_color = (230,230,230)
@@ -25,12 +29,13 @@ class AlienIn:
                     sys.exit()
            
            # Redraw the screen during each pass through the loop.
-            self.screen.fill(self.bg_color)
+            self.screen.fill(self.settings.bg_color)
+            self.ship.blitme()
            
             pygame.display.flip()
             self.clock.tick(60)
 
 
 if __name__ == '__main__':
-    An=AlienIn()
-    An.run_game()
+    ai=AlienIn()
+    ai.run_game()
