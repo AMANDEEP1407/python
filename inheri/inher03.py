@@ -21,14 +21,23 @@ class Restro:
 
 
 
-# class IceCreamStand(Restro):
-#     def __init__(self):
-#         super().__init__(name,dish,number_served=0)
+class IceCreamStand(Restro):
+    def __init__(self,name,dish,number_served):
+        super().__init__(name,dish,number_served)
+
+        self.flavors=['red','yellow']
+
+    def flavorsname(self):
+        print(f"These are the flavors ---> {self.flavors[0]}:{self.flavors[1]}")
+
+
 
 restro=Restro("PhalwanDaba","Indian",56)
+restro1=IceCreamStand("PhalwanDaba","Indian",56)
 restro.open_restro()
 print(restro.describe_restro())
 restro.served()
 restro.set_number_served()
 restro.inc_number_served(11)
 restro.set_number_served()
+restro1.flavorsname()
