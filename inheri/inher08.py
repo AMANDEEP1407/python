@@ -1,3 +1,10 @@
+# Key Concepts You Learned Here
+# Concept	Meaning
+# MRO	The order Python searches classes for methods.
+# super()	Goes to the next class in the MRO, not just “the parent.”
+# **kwargs	Passes unused parameters through the inheritance chain safely.
+# Cooperative Inheritance	Each class calls super().__init__(**kwargs) so every parent runs once.
+
 class A:    
     def __init__(self,name,**kwargs):
         
