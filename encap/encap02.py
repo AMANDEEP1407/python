@@ -41,3 +41,34 @@ e=employ("raman","cs",20000)
 e.Em()
 e.set_salary(1000)
 print(e.get_salary())
+
+
+# how to access private attributes from a subclass in Python.
+
+# First — The Core Rule
+
+# In Python, private attributes (with __) are not truly hidden.
+# They’re name-mangled by the interpreter to make accidental access hard — not impossible.
+
+# So a variable like:
+
+# self.__amount
+
+
+# is actually stored internally as:
+
+# self._ClassName__amount
+
+
+# That means if your class name is B, then:
+
+# self.__amount  →  self._B__amount
+
+# 1. Accessing Private Attribute in Subclass (Using Name Mangling)
+
+
+
+# def show_private(self):
+#         print(f"Accessing private from subclass: {self._B__amount}") 
+
+# 2. using getter and setter
